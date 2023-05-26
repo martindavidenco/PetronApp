@@ -1,0 +1,43 @@
+.welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.textImage{
+    display: flex;
+    width: 65%;
+}
+.containerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #4caf96;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #455aa0;
+  }
+  
+ .button:focus {
+    outline: none;
+  }
+ 
+  
+  
+  
+  
+  
+  

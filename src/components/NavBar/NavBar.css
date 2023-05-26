@@ -1,0 +1,17 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    background-color: cadetblue;
+    width: 100%;
+}
+.title{
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+.androideImg{
+    width: 200px;
+    height: 120px;
+
+}

@@ -1,0 +1,70 @@
+.ingredientesContainer{
+    width: 90%;
+}
+.listContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ingredientList{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.ingrediente{
+    list-style: none;
+    margin: 5px;
+    background-color: #4caf96;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.ingrediente:hover {
+    background-color: #455aa0;
+  }
+  .pagination button {
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    margin: 2px;
+    cursor: pointer;
+  }
+
+  .inputContainerIng{
+    width: 100%;
+    display: flex;
+    
+  }
+
+.input{
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .1);
+    padding: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+.selectedContainer{
+    display: flex;
+   
+    justify-content: space-around;
+}
+.buttonReceta{
+    list-style: none;
+    margin: 5px;
+    background-color: #2350d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.buttonReceta:hover {
+    background-color: #455aa0;
+}
