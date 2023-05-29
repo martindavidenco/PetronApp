@@ -1,3 +1,7 @@
+.mainContainer{
+  background: linear-gradient(#f2b33d, #bf755a);
+  height: 90vh;
+}
 .welcome{
     display: flex;
     flex-direction: column;
@@ -18,7 +22,7 @@
   
   .button {
     padding: 10px 20px;
-    background-color: #4caf96;
+    background-color: #f2b33d;
     color: white;
     border: none;
     border-radius: 5px;
@@ -28,7 +32,7 @@
   }
   
   .button:hover {
-    background-color: #455aa0;
+    background-color: #bf755a;
   }
   
  .button:focus {

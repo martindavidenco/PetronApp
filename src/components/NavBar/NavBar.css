@@ -1,13 +1,15 @@
 .head{
     display: flex;
     justify-content: space-between;
-    background-color: cadetblue;
+    background-color: #F2A444;
     width: 100%;
+    height: 120px;
+    background: linear-gradient( #bf755a,#f2b33d);
 }
 .title{
     text-decoration: none;
     color: white;
-    font-size: 40px;
+    
     font-weight: bold;
 }
 .androideImg{

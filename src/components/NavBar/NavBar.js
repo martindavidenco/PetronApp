@@ -1,18 +1,38 @@
-import "./NavBar.css"
-import { NavLink } from "react-router-dom"
-import androide from "../../assets/androidePetrona.png"
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { UserContext } from "../../context/UserProvider";
+import logo from "../../assets/logo.png";
+import registro from "../../assets/registro.png";
+import "./NavBar.css";
+
 const NavBar = () => {
+    const { user, call_login_google, handleLogout } = useContext(UserContext);
+
   return (
-    <div class="head">
-   
-      <h1><NavLink className="title" to="/">Petronapp</NavLink></h1>
-      <img src={androide} className="androideImg"/>
+    <div className="head">
+      <NavLink className="title" to="/">
+        <img src={logo} style={{ width: "270px", height: "120px" }} alt="Logo" />
+      </NavLink>
 
-      
-      <h2>Tu I.A. asistente de cocina </h2>
+      {user ? (
+        <div>
+          {user.displayName}
+          <img src={user.photoURL} alt="User" />
+          <button onClick={handleLogout}>Cerrar Sesión</button>
+        </div>
+      ) : (
+        <div onClick={call_login_google}>
+          <NavLink to="/register">
+            <h2 className="title">Registrarse / Iniciar Sesión</h2>
+          </NavLink>
 
+          <div>
+            <img src={registro} style={{ width: "50px", height: "50px", marginRight: "50px" }} alt="Registro" />
+          </div>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
