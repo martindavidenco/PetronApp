@@ -2,6 +2,7 @@ import React from 'react';
 import './register.css';
 import logo from "../../assets/logo.png"
 import { initializeApp } from "firebase/app";
+import { NavLink } from 'react-router-dom';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -74,8 +75,8 @@ const Register = () => {
     return (
         <div className="registerForm">
             <hgroup>
-                <h1>Iniciar sesion</h1>
-                <h3>Accede a tu cuenta para empezar a charlar con Doña Petronapp</h3>
+                <h1>Accede a tu cuenta para empezar a charlar con Doña Petronapp</h1>
+                <h3>Registrarse / Iniciar sesion</h3>
             </hgroup>
             <form>
                 <div className="group">
@@ -90,12 +91,13 @@ const Register = () => {
                     <span className="bar"></span>
                     <label>Email</label>
                 </div>
-                <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
+                <NavLink to="/"> <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
                     Iniciar sesion con Google
                     <div className="ripples buttonRipples">
                         <span className="ripplesCircle"></span>
                     </div>
-                </button>
+                </button></NavLink>
+               
             </form>
             <footer>
                 <a href="http://www.polymer-project.org/" target="_blank">

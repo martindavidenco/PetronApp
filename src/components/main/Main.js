@@ -2,10 +2,12 @@ import "./Main.css"
 import petrona from "../../assets/petrona.png"
 import { NavLink } from "react-router-dom"
 import React from 'react';
+import { useContext } from "react";
+import { UserContext } from "../../context/UserProvider";
 
 const Main = () => {
-
-    
+    const { user } = useContext(UserContext);
+    console.log(user)
     return (
         <div className="mainContainer">
                 <div className="welcome">
@@ -18,7 +20,7 @@ const Main = () => {
                             Pero eso no es todo. Doña Petrona no solo te da las recetas, sino que también te ayuda a mejorarlas. La inteligencia artificial está repleta de conocimientos de libros de cocina, así que te da consejos y sugerencias para llevar tus platos al siguiente nivel. ¿Necesitás ajustar las cantidades de los ingredientes? ¿Querés agregarle ese toque especial? Doña Petrona está ahí para acompañarte en cada paso.</p>
                         <img src={petrona} />
                     </div>
-                <div className="containerButton"><NavLink to="/chat"><button className="button"> + Nuevo chat con PetronApp</button></NavLink> <NavLink to="/ingredientes"><button className="button">Selector de ingredientes</button></NavLink></div> 
+                <div className="containerButton">{user == null?<NavLink to="/register"><button className="button"> + Nuevo chat con PetronApp</button></NavLink> :<NavLink to="/chat"><button className="button"> + Nuevo chat con PetronApp</button></NavLink>} <NavLink to="/ingredientes"><button className="button">Selector de ingredientes</button></NavLink></div> 
                 </div>
         </div>
     )
