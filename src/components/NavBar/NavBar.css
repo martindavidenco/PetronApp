@@ -1,19 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 .head{
     display: flex;
     justify-content: space-between;
-    background-color: #F2A444;
+    background-image: url(../../assets/fondoMain.png);
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  flex-wrap: wrap;
     width: 100%;
-    height: 120px;
-    background: linear-gradient( #bf755a,#f2b33d);
+    height: 50px;
+ 
+    font-family: 'Sansita Swashed', cursive;
 }
+.navQuien{
+  display: flex;
+  justify-content: space-between;
+  background-image: url(../../assets/Mesa_de_trabajo_1.jpg);
+  background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+flex-wrap: wrap;
+  width: 100%;
+  height: 50px;
+}
+.chat-page {
+    display: flex;
+    height: 110vh;
+    
+  }
+  
+  .chat-page .mainChat {
+    flex: 1;
+  }
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    font-family: 'Sansita Swashed', cursive;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 110vh;
+   
+
+  }
+  
+  .sidebar .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .sidebar .navegacion2 {
+
+    display: flex;
+    flex-direction: column;
+  
+    
+  }
+  
+  .sidebar .navegacion h2 {
+    margin: 10px;
+    list-style: none;
+    font-size: 25px;
+    box-sizing: border-box;
+    padding: 0 5px;
+    color: #F2A444;
+  }
 .title{
     text-decoration: none;
     color: white;
     
     font-weight: bold;
 }
-.androideImg{
-    width: 200px;
-    height: 120px;
 
+.navegacion{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-right: 20px;
 }
+.navegacion2{
+    font-family: 'Poppins', sans-serif;
+    
+    color: white;
+    
+    font-weight: bold;
+}
+.navegacion h2 {
+    margin: 15px;
+    list-style: none;
+    font-size: 20px;
+    box-sizing: border-box;
+    padding: 0 5px;
+    color: #F2A444;
+}
+.navegacion2 h2 {
+    list-style: none;
+    font-size: 15px;
+    box-sizing: border-box;
+    color: #F2F2F2;
+}
+
+.logIn{
+    color: #222222 ;
+    background-color: #F2F2F2;
+    
+}
+
+.userPhoto {
+    border-radius: 60px;
+    width: 50px;
+    height: 50px;
+  
+}
+.userPhotoChat {
+    border-radius: 60px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+.modal, .overlay {
+    width: 100%;
+    height: 10vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position:absolute;
+}
+
+.modal-content {
+    position:relative;
+    top: 50%;
+    left: 50%;
+   color: #F2F2F2;
+    transform: translate(150%, 50%);
+    line-height: 1.4;
+    background: rgba(8, 8, 8, 0.897);
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 300px;
+    min-width: 200px;
+}
+.buttonChatNav{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #F2F2F2;
+    border: 1px solid #F2F2F2;
+    width: 140px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    height: 50px;
+    font-size: 10px;
+    
+}
+.buttonChatNav:hover{
+  background-color: #222222 ;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+  }
+  .containerAnuncio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .anuncios{
+    background-color: #F2F2F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 165px;
+    width: 90%;
+  }

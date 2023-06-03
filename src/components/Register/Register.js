@@ -79,7 +79,7 @@ const Register = () => {
                 <h3>Registrarse / Iniciar sesion</h3>
             </hgroup>
             <form>
-                <div className="group">
+                {/* <div className="group">
                     <input type="text" onBlur={handleInputBlur} />
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -90,8 +90,8 @@ const Register = () => {
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <label>Email</label>
-                </div>
-                <NavLink to="/"> <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
+                </div> */}
+                <NavLink to="/chat"> <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
                     Iniciar sesion con Google
                     <div className="ripples buttonRipples">
                         <span className="ripplesCircle"></span>
@@ -103,7 +103,7 @@ const Register = () => {
                 <a href="http://www.polymer-project.org/" target="_blank">
                     <img src={logo} style={{ width: "270px", height: "120px" }} />
                 </a>
-                <p>You Gotta Love <a href="http://www.polymer-project.org/" target="_blank">Google</a></p>
+                <p>¿Queres saber <NavLink to="/quien" target="_blank">quienes somos?</NavLink></p>
             </footer>
         </div>
     );

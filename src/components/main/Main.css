@@ -1,6 +1,15 @@
 .mainContainer{
-  background: linear-gradient(#f2b33d, #bf755a);
-  height: 90vh;
+  /* background: linear-gradient(#f2b33d, #bf755a); */
+  height: 95vh;
+  background-image: url("../../assets/fondoMain.png");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  flex-wrap: wrap;
+  font-family: 'Sansita Swashed', cursive;
+  
 }
 .welcome{
     display: flex;
@@ -8,6 +17,11 @@
     justify-content: center;
     align-items: center;
 
+}
+.logoMain{
+  width: 45%;
+  height: auto;
+  margin: 50px;
 }
 .textImage{
     display: flex;
@@ -18,19 +32,36 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+
   }
   
   .button {
     padding: 10px 20px;
     background-color: #f2b33d;
-    color: white;
+    color: #F2F2F2;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    font-family: 'Sansita Swashed', cursive;
   }
-  
+  .buttonMain {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #F2F2F2;
+    border: 2px solid #f2b33d;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Sansita Swashed', cursive;
+    height: 50px;
+  } 
+  .buttonMain:hover{
+    background-color: #bf755a;
+  }
+
   .button:hover {
     background-color: #bf755a;
   }
@@ -38,8 +69,11 @@
  .button:focus {
     outline: none;
   }
- 
+
   
+.upcoming{
+  margin-bottom: 60px;
+}
   
   
   
