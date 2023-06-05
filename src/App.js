@@ -7,7 +7,9 @@ import Ingredientes from './components/Ingredientes/Ingredientes';
 import Register from './components/Register/Register';
 import { UserProvider } from "./context/UserProvider";
 import Footer from './components/Footer/Footer';
-import Quien from "./components/Quien/Quien"
+import Quien from "./components/Quien/Quien";
+import Preguntas from './components/Preguntas/Preguntas';
+import NavPrueba from './components/NavPrueba';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/ingredientes' element={<Ingredientes />} />
           <Route path='/quien' element={<Quien />} />
+          <Route path='/preguntas' element={<Preguntas />} />
+          <Route path='/NavPrueba' element={<NavPrueba />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, useRef } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import { UserContext } from "../../context/UserProvider";
 import face from "../../assets/facebook.svg"
 import insta from "../../assets/instagram.svg"
@@ -8,13 +8,13 @@ import whatsapp from "../../assets/whatsapp.svg"
 
 import "./NavBar.css";
 
-const NavBar = () => {
-  
+const NavBar = ({ onToggleMenu }) => {
+
   const { user, call_login_google, handleLogout } = useContext(UserContext);
   const [modal, setModal] = useState(false);
   const modalRef = useRef(null);
 
-
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleModal = () => {
     setModal(!modal);
@@ -34,20 +34,35 @@ const NavBar = () => {
     };
   }, []);
 
- 
-  
+  const sidebarClassName = isOpen ? "sidebar" : "sidebar small";
 
-  
+
+
   return (
-  
-  <div className="chat-page">
 
-      <div className="sidebar">
-   
+    <div className="chat-page">
 
-        <ul className="navegacion2">
+<div className={sidebarClassName}>
+        <div
+          style={{ margin: "15px" }}
+          className={`nav_toggle ${isOpen && "open"}`}
+          onClick={() => {
+            setIsOpen(!isOpen);
+            onToggleMenu(); // Llamar a la función toggleMenu desde la prop onToggleMenu
+          }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        
+
+        <div className={`nav_items ${isOpen && "open"}`}>
+
+        <div className="nav_logo">
           {user ? (
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginRight: "25px" }}><img src={user && user.photoURL} alt="User" className="userPhotoChat" onClick={toggleModal} />
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop: "20px" }}><img src={user && user.photoURL} alt="User" className="userPhotoChat" onClick={toggleModal} />
               <h2>{user && user.displayName.toUpperCase()}</h2></div>
 
 
@@ -57,41 +72,45 @@ const NavBar = () => {
             </div>
           )}
           {modal && (
-            <div className="modal" ref={modalRef}>
-              <div className="overlay" onClick={toggleModal}></div>
-              <div className="modal-content" style={{ backgroundColor: "black" }}>
+            <div className="modal1" ref={modalRef}>
+              <div className="overlay1" onClick={toggleModal}></div>
+              <div className="modal-content1" style={{ backgroundColor: "black" }}>
                 <p>Usuario: {user && user.displayName}</p>
                 <button className="button" onClick={handleLogout}>Cerrar Sesión</button>
               </div>
             </div>
           )}
-          <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/"><h2 className="buttonChatNav">Inicio</h2></NavLink>
-          <h2 className="buttonChatNav">FAQS</h2>
-          <h2 className="buttonChatNav">Tutorial</h2>
-          <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/quien"><h2 className="buttonChatNav">Nosotros</h2></NavLink>
-          <div className="user-container">
-          </div>
-        </ul>
-        <div className="social-links">
-          {/* Aquí puedes agregar tus enlaces a redes sociales */}
-          <a href="https://www.facebook.com" className="link">
-            <img src={face} alt="Facebook" className="social-logo" width="" height="40px" />
-          </a>
-          <a href="https://www.twitter.com" className="link">
-            <img src={whatsapp} alt="Twitter" className="social-logo" width="" height="40px" />
-          </a>
-          <a href="https://www.instagram.com" className="link">
-            <img src={insta} alt="Instagram" className="social-logo" width="" height="40px" />
-          </a>
         </div>
-        <div className="containerAnuncio"> <div className="anuncios">
-          <p>Anuncios</p>
-        </div></div>
+         
+            <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/"><h2 className="buttonChatNav">Inicio</h2></NavLink>
+            <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/preguntas"><h2 className="buttonChatNav">FAQS</h2></NavLink>
+            <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/preguntas"><h2 className="buttonChatNav">Tutorial</h2></NavLink>
+            <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/quien"><h2 className="buttonChatNav">Nosotros</h2></NavLink>
+        
 
 
+          <div className="social-links1">
+
+            <a href="https://www.facebook.com" className="link">
+              <img src={face} alt="Facebook" className="social-logo" width="" height="40px" />
+            </a>
+            <a href="https://www.twitter.com" className="link">
+              <img src={whatsapp} alt="Twitter" className="social-logo" width="" height="40px" />
+            </a>
+            <a href="https://www.instagram.com" className="link">
+              <img src={insta} alt="Instagram" className="social-logo" width="" height="40px" />
+            </a>
+          </div>
+          
+          <div className="containerAnuncio">
+            <div className="anuncios">
+              <p>Anuncios</p>
+            </div>
+          </div>
+
+        </div>
       </div>
-    
-  </div>
+    </div>
 
   );
 };

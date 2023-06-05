@@ -13,6 +13,12 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const onToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const systemMessage2 = {
     role: "system",
     content: `¡Hola, ${user && user.displayName}! Soy Doña PetronApp, tu compañera en la cocina. Estoy aquí para compartir recetas, ingredientes y ayudarte a mejorar tus habilidades culinarias. ¡Preparémonos para cocinar juntos! 🍳 Si tenés alguna consulta sobre recetas o tenés ingredientes en casa, no dudes en decírmelo. Te daré ideas de platos deliciosos que podés preparar. ¡Manos a la obra! 👩‍🍳💪`
@@ -113,8 +119,8 @@ const Chat = () => {
 
   return (
     <div className="mainChat chat-page">
-      <NavBar></NavBar>
-      <div className="chatContainer">
+      <NavBar onToggleMenu={onToggleMenu}></NavBar>
+      <div className={`chatContainer ${isMenuOpen ? 'menuOpen' : ''}`}>
         <div className="chat">
           <div style={{ flexWrap: "wrap" }}>
             {userMessages.map((message) => (

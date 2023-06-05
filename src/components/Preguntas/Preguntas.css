@@ -1,0 +1,16 @@
+.preguntasContainer{
+    height: 80vh;
+    background-image: url(../../assets/fondoMain.png);
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.accordionContainer{
+    justify-content: center;
+    text-align: center;
+    
+}
