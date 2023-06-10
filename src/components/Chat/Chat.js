@@ -4,7 +4,7 @@ import { UserContext } from "../../context/UserProvider";
 import './Chat.css';
 import NavBar from '../NavBar/NavBar';
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const Chat = () => {
   const { user } = useContext(UserContext);

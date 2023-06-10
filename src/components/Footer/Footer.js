@@ -1,9 +1,9 @@
 import React from 'react';
 import './Footer.css'; // Importar el archivo CSS
 import logo from "../../assets/logoMain.png"
-import face from "../../assets/facebook.svg"
-import insta from "../../assets/instagram.svg"
-import whatsapp from "../../assets/whatsapp.svg"
+import face from "../../assets/facebook.png"
+import insta from "../../assets/instagram.png"
+import tiktok from "../../assets/tik-tok.png"
 const Footer = () => {
     return (
         <footer className="footer">
@@ -46,7 +46,7 @@ const Footer = () => {
                             </a>
                             <a href="#">
 
-                                <img src={whatsapp} alt="youtube" className="fab fa-youtube" />
+                                <img src={tiktok} alt="youtube" className="fab fa-youtube" />
                             </a>
                             <a href="#">
 

@@ -1,16 +1,20 @@
 .preguntasContainer{
-    height: 80vh;
-    background-image: url(../../assets/fondoMain.png);
+    height: 100vh;
+    margin-top: 40px;
+     
+ 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+     /* background-image: url(../../assets/fondoMain.png);
     background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    flex-wrap: wrap;
+    justify-content: center; */
+    background-color: #F2F2F2; 
 }
-.accordionContainer{
-    justify-content: center;
-    text-align: center;
-    
+.main-title{
+  color: #F2B33D;
 }

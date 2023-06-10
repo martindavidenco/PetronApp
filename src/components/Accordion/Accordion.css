@@ -3,7 +3,9 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-
+   width: 100%;
+    align-self: center;
+  
 
 }
 
@@ -16,6 +18,8 @@
     padding: 0 10px;
     width: 2px;
     margin-right: 10px;
+
+
 }
 
 .main-title {
@@ -27,17 +31,28 @@
     width: 320px;
 
     height: 0.15rem;
-    background: var(--gh-blue-10);
+   
     margin-bottom: 40px;
+}
+
+.accordionContainer1 {
+    width: 70%;
+    align-self: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 10px;
+  
+    
+
 }
 
 .accordion-container {
 
     align-items: center;
     align-content: center;
-    border: solid 1px #f2a444; 
+    border: solid 1px #0D0D0D;
     font-size: 20px;
-    
+
 
 }
 
@@ -53,11 +68,12 @@
     justify-content: space-between;
     width: 100%;
     cursor: pointer;
-    justify-content: center;
-    text-align: center;
-    color: #F2A444;
-    font-family: 'Sansita Swashed', cursive;
-  
+    padding-left: 20px;
+    color: #0D0D0D;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    height: 1vh;
+
 
 }
 
@@ -67,12 +83,16 @@
 }
 
 .text-container {
-    color: #F2A444;
-    font-family: 'Sansita Swashed', cursive;
+    color: #0D0D0D;
+    font-family: 'Poppins', sans-serif;
     max-height: 350px;
     opacity: 1;
     animation-name: textanimate;
     animation-duration: 1s;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
 @keyframes textanimate {

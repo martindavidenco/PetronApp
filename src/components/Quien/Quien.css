@@ -1,10 +1,145 @@
-.quienContainer{
-    background-image: url("../../assets/Mesa_de_trabajo_1.jpg");
-    width: auto;
-    height: 120vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.quienContainer {
+    background-image: url("../../assets/bg_naranja.png");
+    display: flex;
+    height: 210vh;
+    flex-direction: column;
+}
+
+.background1 {
+    margin-top: 20px;
+    background-image: url("../../assets/bg_naranja.png");
+    height: 105vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+}
+
+.quienes {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    width: 50%;
+    font-family: 'Sansita Swashed', cursive;
+    color: #f2f2f2;
+}
+
+.quienes h2 {
+    font-size: 40px;
+    font-weight: 900;
+    align-self: flex-start;
+    margin-left: 70px;
+}
+
+.quienes p {
+    width: 80%;
+    font-size: 19px;
+}
+
+.iconosContainer {
+    display: flex;
+}
+
+.icono1 {
+    width: 200px;
+}
+
+.icono2 {
+    width: 200px;
+}
+
+.icono1:hover {
+    animation: shake 0.4s;
+    animation-iteration-count: 3s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+.icono2:hover {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: shake 0.4s;
+    animation-iteration-count: 3s;
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
+.imagenBackground1 {
+    background-image: url("../../assets/bg1_imagen.png");
+    width: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.background2 {
+    background-color: #F2F2F2;
+    height: 105vh;
+    width: 100%;
+    display: flex;
+
+}
+
+.mision {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+    align-items: center;
+
+    font-family: 'Sansita Swashed', cursive;
+}
+
+.mision h2 {
+    align-self: flex-start;
+    margin-left: 70px;
+}
+
+.mision p {
+    width: 80%;
+    font-size: 19px;
+}
+
+.imagenBackground2 {
+    display: flex;
+    background-image: url("../../assets/bg2.png");
+    width: 40%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    flex-wrap: wrap;
+}
+
+@media(max-width: 980px){
+    .quienContainer {
+    height: 220vh;}
+    .background1 {
+        height: 110vh;
+    }
+    .background2 {
+        height: 110vh;
+    }
+}
+@media(max-width: 745px){
+    .quienContainer {
+    height: 260vh;}
+    .background1 {
+        height: 130vh;
+    }
+    .background2 {
+        height: 130vh;
+    }
 }

@@ -1,9 +1,9 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { NavLink} from "react-router-dom";
 import { UserContext } from "../../context/UserProvider";
-import face from "../../assets/facebook.svg"
-import insta from "../../assets/instagram.svg"
-import whatsapp from "../../assets/whatsapp.svg"
+import face from "../../assets/facebook.png"
+import insta from "../../assets/instagram.png"
+import tiktok from "../../assets/tik-tok.png"
 
 
 import "./NavBar.css";
@@ -95,10 +95,10 @@ const NavBar = ({ onToggleMenu }) => {
               <img src={face} alt="Facebook" className="social-logo" width="" height="40px" />
             </a>
             <a href="https://www.twitter.com" className="link">
-              <img src={whatsapp} alt="Twitter" className="social-logo" width="" height="40px" />
+              <img src={insta} alt="Twitter" className="social-logo" width="" height="40px" />
             </a>
             <a href="https://www.instagram.com" className="link">
-              <img src={insta} alt="Instagram" className="social-logo" width="" height="40px" />
+              <img src={tiktok} alt="Instagram" className="social-logo" width="" height="40px" />
             </a>
           </div>
           

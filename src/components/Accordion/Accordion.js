@@ -1,11 +1,12 @@
 import React from "react";
 import useOpenController from "./UseOpenController.js";
 import "./Accordion.css"
+import flecha from "../../assets/flecha.png"
 export const Accordion = ({ section, key }) => {
     const { isOpen, toggle } = useOpenController(false);
     console.log(section);
     return (
-        <div className="accordionContainer">
+        <div className="accordionContainer1">
             <div className="accordion-container">
                 <ExpendableColumn
                     question={section.question}
@@ -32,8 +33,8 @@ export const ExpendableColumn = ({ question, isOpen, toggle }) => {
                         transition: "all 0.25s",
                     }}
                 >
-                    Expandir
                 </span>
+                <img src={flecha} className="flecha" style={{ height: "10px" }} />
             </button>
         </div>
     );

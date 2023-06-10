@@ -4,7 +4,6 @@ import "./Preguntas.css"
 
 const Preguntas = () => {
   return (
-    <>
    <div className="preguntasContainer">
       <div className="accordionContainer"> 
         <h3 className="main-title">Preguntas frecuentes</h3>
@@ -14,7 +13,7 @@ const Preguntas = () => {
         ))}
       </div>
     </div>
-    </>
+    
   )
 }
 

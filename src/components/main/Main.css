@@ -1,4 +1,4 @@
-.mainContainer{
+.mainContainer {
   /* background: linear-gradient(#f2b33d, #bf755a); */
   height: 95vh;
   background-image: url("../../assets/fondoMain.png");
@@ -9,77 +9,129 @@
   background-attachment: fixed;
   flex-wrap: wrap;
   font-family: 'Sansita Swashed', cursive;
-  
-}
-.welcome{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
 }
-.logoMain{
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.logoMain {
   width: 45%;
   height: auto;
   margin: 50px;
 }
-.textImage{
-    display: flex;
-    width: 65%;
+
+.textImage {
+  display: flex;
+  width: 65%;
 }
+
 .containerButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
-  }
-  
-  .button {
-    padding: 10px 20px;
-    background-color: #f2b33d;
-    color: #F2F2F2;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: 'Sansita Swashed', cursive;
-  }
-  .buttonMain {
-    padding: 10px 20px;
-    background-color: transparent;
-    color: #F2F2F2;
-    border: 2px solid #f2b33d;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: 'Sansita Swashed', cursive;
-    height: 50px;
-  } 
-  .buttonMain:hover{
-    background-color: #bf755a;
-  }
+}
 
-  .button:hover {
-    background-color: #bf755a;
-  }
-  
- .button:focus {
-    outline: none;
-  }
+.button {
+  padding: 10px 20px;
+  background-color: #f2b33d;
+  color: #F2F2F2;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Sansita Swashed', cursive;
+  height: 50px;
+  width: 150px
+}
 
-  
-.upcoming{
+.buttonMain {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #F2F2F2;
+  border: 2px solid #f2b33d;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Sansita Swashed', cursive;
+  height: 50px;
+}
+
+.buttonMain:hover {
+  background-color: #bf755a;
+}
+
+.button:hover {
+  background-color: #bf755a;
+}
+
+.button:focus {
+  outline: none;
+}
+
+
+.upcoming {
   margin-bottom: 60px;
 }
-  
-  
-  
-  /*responsive*/
-@media(max-width: 630px) {
+
+
+
+/*responsive*/
+@media(max-width: 768px){
   .mainContainer {
-   height: 10vh;
+
+    height: 75vh;}
+}
+@media(max-width: 540px) {
+  .containerButton {
+    flex-direction: column;
+  }
+  .mainContainer {
+
+    height: 65vh;}
+}
+
+
+@media(max-width: 400px) {
+  .buttonMain {
+    font-size: 14px;
+    width: 150px;
+
+
+  }
+
+  .button {
+
+    font-size: 14px;
+    width: 150px;
+
+  }
+  .mainContainer {
+
+    height: 50vh;}
+
+}
+@media(max-width: 330px) {
+  .buttonMain {
+    font-size: 12px;
+    width: 135px;
+
+
+  }
+
+  .button {
+
+    font-size: 12px;
+    width: 135px;
+
   }
 }
