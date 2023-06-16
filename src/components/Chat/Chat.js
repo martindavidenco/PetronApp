@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
 import './Chat.css';
 import NavBar from '../NavBar/NavBar';
+import { API_KEY } from "../../firebase"
 
-const API_KEY = "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";
 
 const Chat = () => {
   const { user } = useContext(UserContext);

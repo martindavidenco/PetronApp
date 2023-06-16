@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, setPersistence, browserSessionPersistence, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { KEY_FIRE } from "../firebase";
 
-// ... (El resto del código de configuración de Firebase)
 const firebaseConfig = {
-    apiKey: "AIzaSyAnbDK1Cf5p4JHmhZbP6VkW94UAYoKHvzs",
+    apiKey: KEY_FIRE,
     authDomain: "petronapp-5f16f.firebaseapp.com",
     projectId: "petronapp-5f16f",
     storageBucket: "petronapp-5f16f.appspot.com",
@@ -21,7 +21,6 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    // ... (El useEffect que ya tienes)
     useEffect(() => {
         setPersistence(auth, browserSessionPersistence)
             .then(() => {
@@ -68,49 +67,3 @@ export const UserProvider = ({ children }) => {
     );
 };
 
-
-
-// import { createContext, useEffect, useState } from "react";
-// import { initializeApp } from "firebase/app";
-// import { getAuth, onAuthStateChanged, setPersistence, browserSessionPersistence } from "firebase/auth";
-
-// const firebaseConfig = {
-//     apiKey: "AIzaSyAnbDK1Cf5p4JHmhZbP6VkW94UAYoKHvzs",
-//     authDomain: "petronapp-5f16f.firebaseapp.com",
-//     projectId: "petronapp-5f16f",
-//     storageBucket: "petronapp-5f16f.appspot.com",
-//     messagingSenderId: "727769028468",
-//     appId: "1:727769028468:web:39860c038fcbcaedd07e21",
-//     measurementId: "G-EN5E4D8BGZ"
-// };
-
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth();
-
-// export const UserContext = createContext();
-
-// export const UserProvider = ({ children }) => {
-//     const [user, setUser] = useState(null);
-
-//     useEffect(() => {
-//         setPersistence(auth, browserSessionPersistence)
-//             .then(() => {
-//                 onAuthStateChanged(auth, (user) => {
-//                     if (user) {
-//                         setUser(user);
-//                     } else {
-//                         setUser(null);
-//                     }
-//                 });
-//             })
-//             .catch((error) => {
-//                 console.log("Error al establecer la persistencia de la sesión:", error);
-//             });
-//     }, []);
-
-//     return (
-//         <UserContext.Provider value={user}>
-//             {children}
-//         </UserContext.Provider>
-//     );
-// };

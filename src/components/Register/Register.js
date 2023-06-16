@@ -3,6 +3,7 @@ import './register.css';
 import logo from "../../assets/logo.png"
 import { initializeApp } from "firebase/app";
 import { NavLink } from 'react-router-dom';
+import { KEY_FIRE } from '../../firebase';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -10,7 +11,7 @@ const provider = new GoogleAuthProvider();
 
 const Register = () => {
     const firebaseConfig = {
-        apiKey: "AIzaSyAnbDK1Cf5p4JHmhZbP6VkW94UAYoKHvzs",
+        apiKey: KEY_FIRE,
         authDomain: "petronapp-5f16f.firebaseapp.com",
         projectId: "petronapp-5f16f",
         storageBucket: "petronapp-5f16f.appspot.com",
