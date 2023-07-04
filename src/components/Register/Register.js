@@ -1,15 +1,22 @@
 import React from 'react';
 import './register.css';
-import logo from "../../assets/logo.png"
+import icono from "../../assets/google.svg"
 import { initializeApp } from "firebase/app";
 import { NavLink } from 'react-router-dom';
 import { KEY_FIRE } from '../../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const provider = new GoogleAuthProvider();
 
 const Register = () => {
+    const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [option, setOption] = useState("inicioSesion");
+
     const firebaseConfig = {
         apiKey: KEY_FIRE,
         authDomain: "petronapp-5f16f.firebaseapp.com",
@@ -21,7 +28,7 @@ const Register = () => {
     };
     const app = initializeApp(firebaseConfig);
 
-    const auth = getAuth();
+    const auth = getAuth(app);
     const handleInputBlur = (event) => {
         const input = event.target;
         if (input.value) {
@@ -30,6 +37,26 @@ const Register = () => {
             input.classList.remove('used');
         }
     };
+
+
+    const handleCreateAccount = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                console.log('User created');
+                userCredential.user.displayName = userName
+                userCredential.user.photoURL = "https://i.pinimg.com/736x/b1/6c/f3/b16cf30a73e39f9b8819bd9b61ff6b09.jpg"
+                const user = userCredential.user;
+                // Llamamos a la función para actualizar el nombre de usuario
+                console.log(user);
+            })
+            .catch((error) => {
+                console.log(error);
+
+            });
+    };
+
+
+
 
 
 
@@ -46,7 +73,7 @@ const Register = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                console.log(user)
+
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
@@ -75,37 +102,118 @@ const Register = () => {
     }
     return (
         <div className="registerForm">
-            <hgroup>
+            <hgroup style={{ display: "flex", flexDirection: "column", }}>
                 <h1>Accede a tu cuenta para empezar a charlar con Doña Petronapp</h1>
-                <h3>Registrarse / Iniciar sesion</h3>
+                {/* <h3 style={{ display: 'flex', alignSelf: "center", justifyContent: "space-between" }}>
+                    <h3 onClick={() => setOption("registro")}>Registrarse  /</h3>
+                    <h3 onClick={() => setOption("inicioSesion")}> / Iniciar sesión</h3>
+                </h3> */}
             </hgroup>
+
             <form>
-                {/* <div className="group">
-                    <input type="text" onBlur={handleInputBlur} />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    <label>Name</label>
-                </div>
-                <div className="group">
-                    <input type="email" onBlur={handleInputBlur} />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    <label>Email</label>
-                </div> */}
-                <NavLink to="/chat"> <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
-                    Iniciar sesion con Google
-                    <div className="ripples buttonRipples">
-                        <span className="ripplesCircle"></span>
+                {option === "registro" && (
+                    <div >
+
+                        <h1>Registrate en Doña Petronapp!</h1>
+                        <div style={{ display: "flex", justifyContent: "space-around" }}>
+                            <h4>¿Ya tenés una cuenta?  </h4>
+                            <h3 onClick={() => setOption("inicioSesion")}>Iniciar sesión</h3>
+                        </div>
+
+
+                        <NavLink to="/chat">
+                            <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
+                                <img src={icono} style={{height:"30px", marginRight:"20px"}}/>
+                                Registro rápido con Google
+                                <div className="ripples buttonRipples">
+                                    <span className="ripplesCircle"></span>
+                                </div>
+                            </button>
+                        </NavLink>
+                        <div className="group">
+                            <input
+                                onBlur={handleInputBlur}
+                                type="text"
+                                onChange={(e) => setUserName(e.target.value)}
+                            />
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
+                            <label>Nombre</label>
+                        </div>
+                        <div className="group">
+                            <input
+                                type="email"
+                                onBlur={handleInputBlur}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
+                            <label>Email</label>
+                        </div>
+                        <div className="group">
+                            <input
+                                type="password"
+                                onBlur={handleInputBlur}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
+                            <label>Contraseña</label>
+                        </div>
                     </div>
-                </button></NavLink>
-               
+                )}
+
+                {option === "inicioSesion" && (
+                    <div>
+                        <h1>Inicia sesion en Doña Petronapp!</h1>
+                        <div style={{ display: "flex", justifyContent: "space-around" }}>
+                            <h4>¿No tenés una cuenta?  </h4>
+                            <h3 onClick={() => setOption("registro")}>Registrarse </h3>
+                        </div>
+                        <NavLink to="/chat">
+                            <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
+                                Iniciar sesión con Google
+                                <div className="ripples buttonRipples">
+                                    <span className="ripplesCircle"></span>
+                                </div>
+                            </button>
+                        </NavLink>
+                        <div className="group">
+                            <input
+                                type="email"
+                                onBlur={handleInputBlur}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
+                            <label>Email</label>
+                        </div>
+                        <div className="group">
+                            <input
+                                type="password"
+                                onBlur={handleInputBlur}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
+                            <label>Contraseña</label>
+                        </div>
+                    </div>
+                )}
+
+                <NavLink>
+                    <button
+                        type="button"
+                        className="button2 buttonBlue"
+                        onClick={handleCreateAccount}
+                    >
+                        {option === "registro" ? "Registrarse" : "Iniciar sesión"}
+                        <div className="ripples buttonRipples">
+                            <span className="ripplesCircle"></span>
+                        </div>
+                    </button>
+                </NavLink>
             </form>
-            <footer>
-                <a href="http://www.polymer-project.org/" target="_blank">
-                    <img src={logo} style={{ width: "270px", height: "120px" }} />
-                </a>
-                <p>¿Queres saber <NavLink to="/quien" target="_blank">quienes somos?</NavLink></p>
-            </footer>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import "./Accordion.css"
 import flecha from "../../assets/flecha.png"
 export const Accordion = ({ section, key }) => {
     const { isOpen, toggle } = useOpenController(false);
-    console.log(section);
+  ;
     return (
         <div className="accordionContainer1">
             <div className="accordion-container">

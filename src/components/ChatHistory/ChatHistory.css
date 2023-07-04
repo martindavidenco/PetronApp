@@ -1,0 +1,27 @@
+.chatsContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.historyCard{
+    border: solid 1px black;
+    background: radial-gradient(circle at top left, #F2A444, #F28D5B, #e4d833, #c1671e, #c79353);
+    background-size: 200% 200%; /* Ajusta el tamaño del fondo */
+animation: gradientAnimation 5s ease infinite;
+
+}
+.historyCard h3{
+    text-decoration: none;
+    color: brown;
+}
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%; /* Posición inicial del fondo */
+    }
+    50% {
+      background-position: 100% 50%; /* Posición intermedia del fondo */
+    }
+    100% {
+      background-position: 0% 50%; /* Posición final del fondo */
+    }
+  }

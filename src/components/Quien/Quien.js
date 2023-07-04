@@ -1,6 +1,8 @@
 import "./Quien.css"
 import martin from "../../assets/martin.png"
 import leo from "../../assets/leo.png"
+import imagenBackground1 from "../../assets/bg1_imagen.png"
+import imagenBackground2 from "../../assets/bg2.png"
 
 const Quien = () => {
   return (
@@ -18,12 +20,13 @@ const Quien = () => {
             recetas favoritas.
           </p>
           <div className="iconosContainer">
-           <a href="https://www.linkedin.com/in/mart%C3%ADndavidenco/" target="_blank"> <img src={martin} className="icono1" /></a> 
-           <a href="https://www.linkedin.com/in/leo-juarez-415653231" target="_blank"><img src={leo} className="icono2" /></a> 
+           <a href="https://www.linkedin.com/in/mart%C3%ADndavidenco/" target="_blank"> <img src={martin} className="icono" /></a> 
+           <a href="https://www.linkedin.com/in/leo-juarez-415653231" target="_blank"><img src={leo} className="icono" /></a> 
           </div>
 
         </div>
-        <div className="imagenBackground1"></div>
+        <img src={imagenBackground1} className="imagenBackground1"/>
+        {/* <div className="imagenBackground1"></div> */}
       </div>
       <div className="background2">
         <div className="mision">
@@ -38,7 +41,8 @@ const Quien = () => {
             ¡Únete a nosotros y descubre una nueva forma de disfrutar la cocina!.</p>
 
         </div>
-        <div className="imagenBackground2"> </div>
+        <img src={imagenBackground2} className="imagenBackground2"/>
+        {/* <div className="imagenBackground2"> </div> */}
       </div>
 
     </div>

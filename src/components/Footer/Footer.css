@@ -93,7 +93,19 @@ ul {
   color: #F2F2F2;
   transition: all 0.5s ease;
 }
+.navegacionFooter{
+  display: inline-block;
+  height: 40px;
+ 
 
+  margin: 0 10px 10px 0;
+  text-align: center;
+ font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  color: #F2F2F2;
+  transition: all 0.5s ease;
+  font-weight:50;
+}
 .footer-col .social-links1 a:hover {
   color: #24262b;
   background-color: #F2F2F2;
@@ -117,7 +129,12 @@ ul {
 }
 
 /*responsive*/
-@media(max-width: 767px) {
+@media(max-width:875px){
+  .logo {
+    width: 220px;
+  }
+}
+@media(max-width: 787px) {
   .footer-col {
 
     margin-bottom: 30px;
@@ -139,12 +156,48 @@ ul {
   }
 }
 
-@media(max-width: 400px) {
-  .footer-col {
-    width: 50%;
+@media(max-width: 516px) {
+  .footer-col1 {
+    width: 100%;
+    align-self: center;
+    margin-left: 38%;
   }
+  .footer-col {
+    width: 30%;
+  }
+   .row{
+   
+    justify-content: center;
+    align-items: center;
+  } 
 
   .logo {
     width: 100px;
+  }
+}
+@media(max-width: 350px){
+  .footer-col1 {
+    margin-left: 35%;
+  }
+  .navegacionFooter{
+    font-size: 12px;
+  }
+  .footer-col h4{
+    font-size: 12px;
+  }
+}
+@media(max-width: 260px){
+  .footer-col1 {
+    margin-left: 31%;
+  }
+}
+@media(max-width: 220px){
+  .footer-col1 {
+    margin-left: 25%;
+  }
+}
+@media(max-width: 180px){
+  .footer-col1 {
+    margin-left: 20%;
   }
 }

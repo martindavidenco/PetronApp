@@ -95,9 +95,7 @@
   .containerButton {
     flex-direction: column;
   }
-  .mainContainer {
-
-    height: 65vh;}
+ 
 }
 
 
@@ -115,9 +113,7 @@
     width: 150px;
 
   }
-  .mainContainer {
-
-    height: 50vh;}
+ 
 
 }
 @media(max-width: 330px) {

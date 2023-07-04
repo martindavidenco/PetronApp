@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, useRef } from "react";
-import { NavLink} from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 import { UserContext } from "../../context/UserProvider";
 import face from "../../assets/facebook.png"
 import insta from "../../assets/instagram.png"
@@ -13,6 +13,11 @@ const NavBar = ({ onToggleMenu }) => {
   const { user, call_login_google, handleLogout } = useContext(UserContext);
   const [modal, setModal] = useState(false);
   const modalRef = useRef(null);
+  const navigate = useNavigate();
+  const handleOnClick = () => {
+    navigate('/register'); // Utilizando navigate en lugar de history.push
+};
+
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -67,9 +72,7 @@ const NavBar = ({ onToggleMenu }) => {
 
 
           ) : (
-            <div className="button logIn" onClick={call_login_google}>
-              Iniciar Sesión
-            </div>
+            <div className="button logIn" onClick={handleOnClick}>Iniciar Sesión</div>
           )}
           {modal && (
             <div className="modal1" ref={modalRef}>
@@ -84,7 +87,7 @@ const NavBar = ({ onToggleMenu }) => {
          
             <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/"><h2 className="buttonChatNav">Inicio</h2></NavLink>
             <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/preguntas"><h2 className="buttonChatNav">FAQS</h2></NavLink>
-            <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/preguntas"><h2 className="buttonChatNav">Tutorial</h2></NavLink>
+            <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/chatHistory"><h2 className="buttonChatNav">Tus chats</h2></NavLink>
             <NavLink className="navegacion2" style={{ textDecoration: 'none', color: 'inherit' }} to="/quien"><h2 className="buttonChatNav">Nosotros</h2></NavLink>
         
 

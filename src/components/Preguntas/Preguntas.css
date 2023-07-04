@@ -13,8 +13,22 @@
     background-attachment: fixed;
     flex-wrap: wrap;
     justify-content: center; */
-    background-color: #F2F2F2; 
+    background: radial-gradient(circle at top left, #d5cfc8, #e6ccbf, #f6c85b, #b9743b, #ffa332);
+    background-size: 200% 200%; /* Ajusta el tamaño del fondo */
+animation: gradientAnimation 10s ease infinite;
 }
 .main-title{
-  color: #F2B33D;
+  color: #000000;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%; /* Posición inicial del fondo */
+  }
+  50% {
+    background-position: 100% 50%; /* Posición intermedia del fondo */
+  }
+  100% {
+    background-position: 0% 50%; /* Posición final del fondo */
+  }
 }
