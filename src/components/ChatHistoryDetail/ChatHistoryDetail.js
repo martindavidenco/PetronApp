@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { doc, getDoc, getFirestore,deleteDoc } from "firebase/firestore";
 import { UserContext } from "../../context/UserProvider";
-
+import "./ChatHistoryDetail.css"
 const ChatHistoryDetail = () => {
     const [chatSelected, setChatSelected] = useState(null);
     const { id } = useParams();
     const { user } = useContext(UserContext);
     const userId = user.uid
+    const [chats, setChats] = useState([]);
 
     const getChat = async () => {
         try {
@@ -24,7 +25,18 @@ const ChatHistoryDetail = () => {
             console.log(error);
         }
     };
-
+    const deleteChat = async (chatId) => {
+        try {
+          const db = getFirestore();
+          const userId = user.uid;
+          const chatDocRef = doc(db, 'chats', userId, 'userChats', chatId);
+          await deleteDoc(chatDocRef);
+          console.log('Chat deleted successfully');
+          setChatSelected(null); // Establecer chatSelected en null después de borrar el chat
+        } catch (error) {
+          console.error('Error deleting chat:', error);
+        }
+      }
     useEffect(() => {
         getChat();
     }, [id]);
@@ -34,17 +46,21 @@ const ChatHistoryDetail = () => {
     }
 
     return (
-        <div style={{ height: "100vh", backgroundColor: "#f2f2f2" }}>
-            <h2>Chat History Detail</h2>
+        <div className="detailContainer">
+
             {chatSelected ? (
-                <>
-                    <h3>Chat del: {chatSelected.title}</h3>
+                <div className="containerDetail">
+                    <div className="titleChatSaved">
+                        <h2>{chatSelected.titleChat}</h2>
+                        <h3>Chat del: {chatSelected.Date}</h3>
+                        <button className='buttonDelete' onClick={() => deleteChat(chatSelected.id)}>Borrar Chat</button> 
+                    </div>
                     <ul>
                         {chatSelected.userMessages.map((message, index) => (
                             (index !== 0 && <li key={index}>{message}</li>)
                         ))}
                     </ul>
-                </>
+                </div>
             ) : (
                 <div>Chat not found</div>
             )}

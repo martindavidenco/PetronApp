@@ -13,8 +13,15 @@ body {
 
 ul {
   list-style: none;
+  
 }
-
+.ulFooter{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: 30%;
+}
 .logo {
   width: 260px;
   height: auto;
@@ -22,12 +29,14 @@ ul {
 }
 
 .footer {
-  background-color: #222222;
+  background-color: #000000;
 
 
 }
 
 .footer-col {
+  display: flex;
+
   width: 25%;
   justify-content: flex-start;
   align-items: flex-start;
@@ -160,11 +169,12 @@ ul {
   .footer-col1 {
     width: 100%;
     align-self: center;
-    margin-left: 38%;
+   
   }
   .footer-col {
-    width: 30%;
-  }
+    width: 31%;
+  height: 250px;  }
+
    .row{
    
     justify-content: center;
@@ -174,30 +184,20 @@ ul {
   .logo {
     width: 100px;
   }
+  .ulFooter{
+   
+    margin-right: 50%;}
+ 
+    .navegacionFooter{
+      font-size: 14px;
+    }
 }
 @media(max-width: 350px){
-  .footer-col1 {
-    margin-left: 35%;
-  }
+
   .navegacionFooter{
     font-size: 12px;
   }
   .footer-col h4{
     font-size: 12px;
-  }
-}
-@media(max-width: 260px){
-  .footer-col1 {
-    margin-left: 31%;
-  }
-}
-@media(max-width: 220px){
-  .footer-col1 {
-    margin-left: 25%;
-  }
-}
-@media(max-width: 180px){
-  .footer-col1 {
-    margin-left: 20%;
   }
 }

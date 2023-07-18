@@ -6,16 +6,19 @@
   margin: 10px;
   width: 80%;
   background-color: transparent;
+  height: 120vh;
+  padding-bottom: 5%;
 }
 
 .chat-page {
   display: flex;
-  height: 100vh;
-  background-image: url(../../assets/fondochat.png);
+  height: 130vh;
+  /* background-image: url(../../assets/fondochat.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background-color: #222222;
   flex-wrap: wrap;
   
 }
@@ -23,7 +26,7 @@
 .chat {
   background-color: transparent;
   width: 100%;
-  height: 90vh;
+  height: 120vh;
   border-radius: 15px;
 margin-top: 10px;
   overflow-y: auto;
@@ -34,21 +37,27 @@ margin-top: 10px;
   text-align: right;
   align-self: flex-end;
   /* Cambiado a flex-end */
-  background-color: #f2a444;
-  color: #222222;
+  background-color: #222222;
+  color: #f2f2f2;
   padding: 10px;
   border-radius: 15px 15px 0 15px;
   margin-bottom: 10px;
+  box-shadow: 4px 4px 0px 0px #F2B33D;
+  border: 1px solid #FFFFFF
+
 }
 
 .chat .petronappMessage {
   align-self: flex-start;
-  background-color: #fff;
-  color: #222222;
+  background-color: #222222;
+  color: #f2f2f2f2;
   padding: 10px;
   border-radius: 15px 15px 15px 0;
   margin-bottom: 10px;
   max-width: 80%;
+  box-shadow: 4px 4px 0px 0px #FFFFFF;
+  border: 1px solid #FFFFFF
+
 }
 
 .oldChats {
@@ -74,14 +83,31 @@ margin-top: 10px;
   padding: 5px;
   width: 95%;
 }
+.presionaContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #756A6D;
+  font-size: 15px;
+}
+.presiona{
+  margin-left: 5px;
+  color: #FFFFFF;
+  text-decoration: underline;
 
+}
 .inputContainer {
   display: flex;
+  flex-direction: column;
   width: 100%;
   margin-bottom: 100px;
+  justify-content: center;
+  align-items: center;
  
 }
-
+.typingIndicator{
+  color: #F2B33D;
+}
 .buttonChatSave {
   display: flex;
   justify-content: center;
@@ -90,7 +116,7 @@ margin-top: 10px;
   background-color: transparent;
 
   border: 1px solid #F2F2F2;
-  color: #222222;
+  color: #f2f2f2;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
   height: 50px;
@@ -105,9 +131,11 @@ margin-top: 10px;
 }
 
 .input2 {
-  background: #f2f2f2;
-  border-radius: 40px;
-  box-shadow: 0 10px 15px rgba(171, 25, 25, 0.1);
+  background: #222222;
+  border: 1px solid #F2F2F2;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(171, 139, 25, 0.1);
+  color: #F2F2F2;
   padding: 10px;
 
 }
@@ -115,7 +143,10 @@ margin-top: 10px;
 .chatContainer.menuOpen {
   width: 60%;
 }
-
+.custom-swal-button {
+  background-color: #222222; /* Cambia el color según tu preferencia */
+  color: white; /* Cambia el color del texto según tu preferencia */
+}
 
 
 @media (max-width: 920px) {
@@ -128,7 +159,9 @@ margin-top: 10px;
   .chatContainer {
     width: 70%;
   }
-
+.chat-page{
+  height: 150vh;
+}
   .buttonChatSave {
     margin-left: 70px;
   }
@@ -144,9 +177,7 @@ margin-top: 10px;
     display: flex;
     flex-direction: column;
   }
-  .inputContainer{
-    flex-direction: row-reverse;
-  }
+
   .buttonChatSave {
     margin-left: 0px;
     margin-right: 20px;
@@ -161,7 +192,10 @@ margin-top: 10px;
     font-size: 15px;
   }
 
-  
+  .presionaContainer{
+    width: 80%;
+    font-size: 12px;
+  }
 
 }
 
@@ -174,14 +208,30 @@ margin-top: 10px;
     
     width: 100px;
   }
+  .chat .petronappMessage {
+
+   
+    font-size: 13px;
+  }
+  .presionaContainer{
+    width: 90%;
+    font-size: 12px;
+  }
 
 }
 
+@media (max-width: 313px) {.presionaContainer{
+  width: 95%;
+
+}}
 @media (max-width: 300px) {
   .chatContainer.menuOpen {
     width: 50%;
   }
-
+  .presionaContainer{
+    width: 100%;
+  font-size: 10px;
+  }
   .chat .petronappMessage {
 
 

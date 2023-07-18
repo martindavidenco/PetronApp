@@ -52,25 +52,25 @@ const ChatHistory = () => {
     };
 
     return (
-        <div style={{ height: "100vh", backgroundColor: "#fafafa" }}>
+        <div className='historyCointainer' >
 
 
-            <h2>Historial de chats</h2>
-            <h2>Aqui encontraras los chats que guardaste</h2>
+            {/* <h2>Historial de chats:</h2> */}
+            <h5 style={{color:"#00000"}}>Chats guardados:</h5>
             <div className='chatsContainer'>
                 {chats.map((chat) => (
                     <div key={chat.id} className='historyCard'>
                         <Link
-                            style={{ textDecoration: 'none', color: 'inherit' }} to={`/chatHistory/${chat.id}`}>
+                            style={{ textDecoration: 'none', color: '#f2f2f2' }} to={`/chatHistory/${chat.id}`}>
                             <h3> {chat.titleChat}</h3>
-                            <h3>Chat del: {chat.Date}</h3>
+                            {/* <h3>Chat del: {chat.Date}</h3> */}
                             {/* {chat.userMessages && chat.userMessages.length >= 2 && (
                             <h4>Mensaje inicial: {chat.userMessages[1]}</h4>
                         )} */}
 
 
                         </Link>
-                        <button className='button' onClick={() => deleteChat(chat.id)}>Borrar Chat</button>
+                        {/* <button className='buttonDelete' onClick={() => deleteChat(chat.id)}>Borrar Chat</button> */}
 
                     </div>
                 ))}

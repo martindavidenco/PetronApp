@@ -3,45 +3,44 @@
 .head {
   display: flex;
   justify-content: space-between;
-  background-image: url(../../assets/fondoMain.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #222222;
   flex-wrap: wrap;
   width: 100%;
-  height: 50px;
-  font-family: 'Sansita Swashed', cursive;
+  height: auto;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+
+  z-index: 2;
+
 }
 
-.navQuien {
+.headRegister {
   display: flex;
   justify-content: space-between;
-  background-image: url(../../assets/bg_naranja.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #222222;
   flex-wrap: wrap;
   width: 100%;
-  height: 50px;
-
-  color: #F2F2F2;
+  height: auto;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  z-index: 2;
 }
+
 
 .fondoChat {
   display: flex;
   justify-content: space-between;
-  background-image: url(../../assets/fondochat.png);
+  /* background-image: url(../../assets/fondochat.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background-color: #222222;
   flex-wrap: wrap;
   width: 100%;
   height: 50px;
 
-  color: #F2F2F2;
+  color: #222222;
 }
 
 .title {
@@ -53,9 +52,9 @@
 }
 
 .logoNav {
-  width: 100px;
+  width: 120px;
   height: auto;
-  margin-top: 19px;
+  margin-top: 9px;
   margin-left: 15px;
 }
 
@@ -63,15 +62,11 @@
   color: #f2f2f2;
 }
 
-.nav_items1 h2 {
-  margin: 10px;
-  list-style: none;
-  font-size: 25px;
-  box-sizing: border-box;
-  padding: 0 5px;
-  color: #F2A444;
-}
 
+.containerNav{
+  display: flex;
+  margin-right: 40px;
+}
 .nav_items1 {
   display: flex;
   text-align: center;
@@ -82,11 +77,13 @@
 
 .nav_items1 h2 {
   margin: 15px;
+  margin-top: 9px;
   list-style: none;
-  font-size: 20px;
+  font-size: 24px;
   box-sizing: border-box;
   padding: 0 5px;
-  color: #F2A444;
+  font-weight: 300;
+  color: #ffffff;
   flex-wrap: wrap;
 }
 
@@ -123,17 +120,27 @@
 
 .clickable-area {
   display: inline-block;
-  width: 20px; /* Ajusta el ancho según tus necesidades */
-  height: 20px; /* Ajusta la altura según tus necesidades */
+  width: 20px;
+  /* Ajusta el ancho según tus necesidades */
+  height: 20px;
+  /* Ajusta la altura según tus necesidades */
   cursor: pointer;
+  color: #9E9E9E;
+ 
+
+}
+
+.nav_toggle1.open span {
+  background-color: #9E9E9E;
+  /* Cambia el color según tus preferencias */
 }
 
 @media (max-width: 768px) {
 
-  .active {
-    background-color:  #ad7f2a;
-    ;
-  }
+  /* .active {
+    background-color: #F2B33D;
+
+  } */
 
   .inactive {
     color: yellow;
@@ -145,7 +152,7 @@
 
   .nav_items1 h2:hover {
     transition: all 0.3s ease;
-   font-size: 22px;
+    font-size: 22px;
     padding-left: 18px;
   }
 
@@ -185,13 +192,13 @@
 
   .nav_items1 {
     position: absolute;
-   
+
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    background: #060302;
+    background: #222222;
     height: 0;
     overflow: hidden;
     transition: height 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
@@ -199,15 +206,25 @@
 
     margin-top: 0;
     padding: 0px;
-    
 
+
+
+  }
+  .containerNav{
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 0px;
+    margin-right: 0;
 
   }
 
   .user-container {
-    background: #222222;
+    background: #f2f2f2;
     width: 100%;
-  
+
     padding-top: 20px;
   }
 
@@ -216,7 +233,7 @@
   }
 
   .nav_items1 a {
-    border: solid 1px #8f6330;
+    border: 1px solid #9E9E9E;
     width: 100%;
   }
 
@@ -224,15 +241,15 @@
     margin: 15px;
     list-style: none;
     font-size: 20px;
-    
-    color: #d2d2d2;
+
+    color: #f2f2f2;
     flex-wrap: wrap;
     transform: translateY(-100%);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
 
   }
- 
+
 
   .nav_items1.open h2 {
     transform: translateY(0);

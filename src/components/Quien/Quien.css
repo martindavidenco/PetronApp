@@ -1,20 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 .quienContainer {
-    background-image: url("../../assets/bg_naranja.png");
+
     display: flex;
     height: 210vh;
     flex-direction: column;
+    background-color: #222222;
 }
 
 .background1 {
     margin-top: 20px;
-    background-image: url("../../assets/bg_naranja.png");
+    /* background-image: url("../../assets/bg_naranja.png"); */
+    background-color: #222222;
     height: 105vh;
-    background-position: center;
+    /* background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     flex-wrap: wrap;
     display: flex;
     width: 100%;
@@ -44,19 +46,28 @@
 
 .iconosContainer {
     display: flex;
-    justify-content: center; /* Agregado */
+    justify-content: center;
+    /* Agregado */
+
+
+
 }
 
 
 
 .icono {
     width: 200px;
+    border-radius: 15px;
+
+    padding: 0;
+
+
 }
 
 .icono:hover {
     animation: shake 0.4s;
     animation-iteration-count: 3s;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
 }
 
 
@@ -124,14 +135,15 @@
 
 .imagenBackground2 {
     display: flex;
-   
+
     width: 40%;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    justify-content: center; /* Agregado */
-    align-items:center ;
+    justify-content: center;
+    /* Agregado */
+    align-items: center;
     align-self: center;
     flex-wrap: wrap;
 }
@@ -163,48 +175,59 @@
         height: 120vh;
     }
 }
-@media(max-width: 800px){
+
+@media(max-width: 800px) {
     .quienContainer {
         height: 380vh;
     }
-    .background1{
+
+    .background1 {
         display: flex;
         flex-direction: column-reverse;
         height: 200vh;
         justify-content: center;
         text-align: center;
     }
-    .quienes{
-        width: 100%; /* Modificación */
+
+    .quienes {
+        width: 100%;
+        /* Modificación */
         justify-content: center;
         text-align: center;
     }
-    .imagenBackground1{
+
+    .imagenBackground1 {
         justify-content: center;
         text-align: center;
-        width: 100%; /* Modificación */
+        width: 100%;
+        /* Modificación */
     }
-    .background2{
+
+    .background2 {
         display: flex;
         flex-direction: column-reverse;
         height: 200vh;
         justify-content: center;
         text-align: center;
     }
-    .mision{
-        width: 100%; /* Modificación */
+
+    .mision {
+        width: 100%;
+        /* Modificación */
         justify-content: center;
         text-align: center;
         margin-top: 0;
     }
-    .imagenBackground2{
+
+    .imagenBackground2 {
         width: 50%;
         justify-content: center;
         text-align: center;
 
     }
-    
+
 }
+
 @media(max-width: 770px) {
     .quienContainer {
         height: 300vh;
@@ -225,46 +248,55 @@
     .background2 {
         height: 130vh;
     }
+
     .quienes h2 {
-       
+
         font-weight: 900;
         align-self: center;
-        margin-left: 0;}
-        .mision h2 {
-       
-            font-weight: 900;
-            align-self: center;
-            margin-left: 0;}
-        
-        
+        margin-left: 0;
+    }
+
+    .mision h2 {
+
+        font-weight: 900;
+        align-self: center;
+        margin-left: 0;
+    }
+
+
 }
 
-@media(max-width: 410px){
+@media(max-width: 410px) {
     .icono {
         width: 150px;
     }
+
     .quienes h2 {
-        
+
         font-size: 27px;
     }
+
     .quienes p {
-        
+
         font-size: 15px;
     }
+
     .mision p {
-        
+
         font-size: 15px;
     }
+
     .quienContainer {
         height: 250vh;
     }
-    
-   
+
+
 }
-@media(max-width: 300px){
+
+@media(max-width: 300px) {
     .icono {
         width: 110px;
     }
-    
-   
+
+
 }

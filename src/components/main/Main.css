@@ -1,29 +1,57 @@
 .mainContainer {
   /* background: linear-gradient(#f2b33d, #bf755a); */
-  height: 95vh;
-  background-image: url("../../assets/fondoMain.png");
-
-  background-position: center;
+  height: auto;
+  /* background-image: url("../../assets/fondoMain.png"); */
+  display: flex;
+  /* background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background-color: #222222;
   flex-wrap: wrap;
   font-family: 'Sansita Swashed', cursive;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 5%;
+
+}
+
+.subtitle {
+  color: #F2F2F2;
+  text-align: left;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+}
+
+.descubri {
+  color: #FFFFFF;
+  font-size: 40px;
 
 }
 
 .welcome {
   display: flex;
-  flex-direction: column;
+  width: 45%;
   justify-content: center;
   align-items: center;
+  margin-left: 2%;
+
 
 }
 
 .logoMain {
-  width: 45%;
-  height: auto;
-  margin: 50px;
+  background-image: url("../../assets/main.svg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 160%;
+  background-attachment: local;
+  width: 53%;
+  height: 110vh;
+
+  margin-bottom: 30px;
+
 }
 
 .textImage {
@@ -41,16 +69,30 @@
 
 .button {
   padding: 10px 20px;
-  background-color: #f2b33d;
-  color: #F2F2F2;
-  border: none;
-  border-radius: 5px;
+  background-color: #222222;
+  color: #ffffff;
+
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   font-family: 'Sansita Swashed', cursive;
   height: 50px;
-  width: 150px
+  width: 150px;
+  border: 1px solid #FFFFFF;
+  box-shadow: 4px 4px 0px 0px #F2B33D;
+  border: solid 1px #FFFFFF;
+  border-radius: 15px;
+
+
+
+
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonMain {
@@ -64,14 +106,17 @@
   cursor: pointer;
   font-family: 'Sansita Swashed', cursive;
   height: 50px;
+  width: 150px;
 }
 
 .buttonMain:hover {
-  background-color: #bf755a;
+  background-color: #ffffff;
+  color: #222222;
 }
 
 .button:hover {
-  background-color: #bf755a;
+  background-color: #ffffff;
+  color: #222222;
 }
 
 .button:focus {
@@ -86,16 +131,88 @@
 
 
 /*responsive*/
-@media(max-width: 768px){
-  .mainContainer {
+@media(max-width: 1150px) {}
 
-    height: 75vh;}
+@media(max-width: 1105px) {}
+
+@media(max-width: 989px) {
+
+
+  .welcome {
+
+    width: 45%;
+
+
+  }
 }
-@media(max-width: 540px) {
+
+@media(max-width: 838px) {}
+
+@media(max-width: 768px) {
+
+
   .containerButton {
     flex-direction: column;
   }
- 
+
+}
+
+@media(max-width: 720px) {}
+
+@media(max-width: 680px) {
+  .welcome {
+    display: flex;
+
+
+
+  }
+
+  .mainContainer {
+    flex-direction: column-reverse;
+  }
+
+  .logoMain {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media(max-width: 680px) {
+  .welcome {
+    flex-direction: column;
+    width: 75%;
+    margin-left: 0;
+
+  }
+
+.subtitle{
+  text-align: center;
+  font-size: 12px;
+}
+
+  .logoMain {
+    margin: 0;
+    width: 100%;
+    height: 80vh;
+    background-position: center;
+    background-size: 120%;
+  }
+
+  .descubri {
+    font-size: 20px;
+  }
+}
+
+@media(max-width: 540px) {
+
+  .subtitle {
+    font-size: 12px;
+  }
+  .logoMain {
+  
+    height: 67vh;}
+
+
 }
 
 
@@ -113,9 +230,21 @@
     width: 150px;
 
   }
- 
+
+
+
 
 }
+@media(max-width: 460px) {
+  .logoMain{height: 56vh;}
+}
+@media(max-width: 420px) {
+  .logoMain{height: 52vh;}
+}
+@media(max-width: 380px) {
+  .logoMain{height: 46vh;
+    background-size: 120%;}
+ }
 @media(max-width: 330px) {
   .buttonMain {
     font-size: 12px;
@@ -130,4 +259,14 @@
     width: 135px;
 
   }
+  .logoMain{height: 40vh;}
 }
+@media(max-width: 300px) {
+  .logoMain{height: 37vh;}
+ }
+
+ @media(max-width: 280px) {
+  .logoMain{height: 34vh;}
+ } @media(max-width: 260px) {
+  .logoMain{height: 31vh;}
+ }

@@ -1,27 +1,109 @@
-.chatsContainer{
-    display: flex;
-    flex-wrap: wrap;
+.historyCointainer {
+  display: flex;
+  flex-direction: column;
+width: 70%;
+
+  background-color: #f2f2f2;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  margin-top: 20vh;
 }
 
-.historyCard{
-    border: solid 1px black;
-    background: radial-gradient(circle at top left, #F2A444, #F28D5B, #e4d833, #c1671e, #c79353);
-    background-size: 200% 200%; /* Ajusta el tamaño del fondo */
-animation: gradientAnimation 5s ease infinite;
+.chatsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.historyCard {
+  border: solid 1px black;
+  background:#222222;
+color: #f2f2f2;
+  
+  margin: 10px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0px 0px #F2B33D;
 
 }
-.historyCard h3{
-    text-decoration: none;
-    color: brown;
+.historyCard:hover{
+  padding-left: 20px;
+  background-color: #000000;
+ 
+
 }
+.historyCard h3 {
+  text-decoration: none;
+  color: #f2f2f2
+}
+.historyCard h3:hover{
+  font-weight: 300;
+}
+.buttonDelete {
+  padding: 10px 20px;
+  background-color: #222222;
+  color: #fc0000;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Sansita Swashed', cursive;
+  height: 50px;
+  width: 150px
+}
+.buttonDelete:hover {
+  background-color: #bf755a;
+}
+
 @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%; /* Posición inicial del fondo */
-    }
-    50% {
-      background-position: 100% 50%; /* Posición intermedia del fondo */
-    }
-    100% {
-      background-position: 0% 50%; /* Posición final del fondo */
-    }
+  0% {
+    background-position: 0% 50%;
+    /* Posición inicial del fondo */
   }
+
+  50% {
+    background-position: 100% 50%;
+    /* Posición intermedia del fondo */
+  }
+
+  100% {
+    background-position: 0% 50%;
+    /* Posición final del fondo */
+  }
+}
+
+@media (max-width: 913px){
+
+}
+@media (max-width: 803px){
+
+  .buttonDelete{
+    width: 120px;
+    font-size: 14px;
+  }
+}
+
+  @media (max-width: 500px){
+    .historyCard{
+      width:138px;
+     height: 63px;
+    }
+    .historyCointainer {
+    
+    width: 100%;}
+
+  }
+  @media (max-width: 331px){
+    .historyCard{
+     
+     height: auto;
+    }}

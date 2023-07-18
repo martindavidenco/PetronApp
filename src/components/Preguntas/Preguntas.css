@@ -1,34 +1,41 @@
-.preguntasContainer{
-    height: 100vh;
-    margin-top: 40px;
-     
- 
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-     /* background-image: url(../../assets/fondoMain.png);
+.preguntasContainer {
+  height: 100vh;
+  margin-top: 40px;
+
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* background-image: url(../../assets/fondoMain.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     flex-wrap: wrap;
     justify-content: center; */
-    background: radial-gradient(circle at top left, #d5cfc8, #e6ccbf, #f6c85b, #b9743b, #ffa332);
-    background-size: 200% 200%; /* Ajusta el tamaño del fondo */
-animation: gradientAnimation 10s ease infinite;
+  background: radial-gradient(circle at top left, #d5cfc8, #e6ccbf, #f6c85b, #b9743b, #ffa332);
+  background-size: 200% 200%;
+  /* Ajusta el tamaño del fondo */
+  animation: gradientAnimation 10s ease infinite;
 }
-.main-title{
+
+.main-title {
   color: #000000;
 }
 
 @keyframes gradientAnimation {
   0% {
-    background-position: 0% 50%; /* Posición inicial del fondo */
+    background-position: 0% 50%;
+    /* Posición inicial del fondo */
   }
+
   50% {
-    background-position: 100% 50%; /* Posición intermedia del fondo */
+    background-position: 100% 50%;
+    /* Posición intermedia del fondo */
   }
+
   100% {
-    background-position: 0% 50%; /* Posición final del fondo */
+    background-position: 0% 50%;
+    /* Posición final del fondo */
   }
 }

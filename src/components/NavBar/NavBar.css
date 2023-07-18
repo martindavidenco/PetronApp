@@ -4,7 +4,7 @@
 
 .chat-page {
   display: flex;
-  height: 110vh;
+  height: auto;
 
 }
 
@@ -19,13 +19,13 @@
   font-family: 'Sansita Swashed', cursive;
   transition: all 0.3s ease;
   background-color: rgba(0, 0, 0, 0.2);
-  height: 110vh;
+  height: auto;
 
 
 }
 
 
-.sidebar .title {
+.title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,8 @@
 
   display: flex;
   flex-direction: column;
-
+justify-content: center;
+align-items: center;
 
 }
 
@@ -162,6 +163,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .anuncios {
@@ -177,6 +179,77 @@
   width: 30px;
   height: 30px;
   margin: 5px;
+}
+
+.historyCointainer1 {
+  display: flex;
+  flex-direction: column;
+width: 100%;
+
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+
+}
+
+.chatsContainer1 {
+  display: flex;
+ flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45vh;
+  overflow-y: auto; 
+  scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
+  scrollbar-color: #f2f2f2 #222222; /* Color de la barra y el fondo */
+}
+
+.chatsContainer1::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento en navegadores basados en WebKit */
+}
+
+.chatsContainer1::-webkit-scrollbar-track {
+  background: #222222; /* Color de fondo de la barra de desplazamiento */
+}
+
+.chatsContainer1::-webkit-scrollbar-thumb {
+  background-color: #f2f2f2; /* Color de la barra de desplazamiento */
+  border-radius: 14px; /* Borde redondeado de la barra de desplazamiento */
+}
+
+
+
+
+
+.historyCard1 {
+  border: solid 1px black;
+  background:#222222;
+color: #f2f2f2;
+  width: 80%;
+  margin: 10px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0px 0px #F2B33D;
+
+}
+.historyCard1:hover{
+  padding-left: 20px;
+  background-color: #000000;
+ 
+
+}
+.historyCard1 h3 {
+  text-decoration: none;
+  color: #f2f2f2
+}
+.historyCard1 h3:hover{
+  font-weight: 300;
 }
 
 @media (max-width: 1151px) {

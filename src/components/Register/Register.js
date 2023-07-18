@@ -1,11 +1,12 @@
-import React from 'react';
 import './register.css';
-import icono from "../../assets/google.svg"
+import icono from "../../assets/google(1).png"
 import { initializeApp } from "firebase/app";
 import { NavLink } from 'react-router-dom';
 import { KEY_FIRE } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
+import foto from "../../assets/login.svg"
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -16,6 +17,12 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [option, setOption] = useState("inicioSesion");
+    const [currentUser, setCurrentUser] = useState(null);
+    const navigate = useNavigate();
+    const handleOnClick = () => {
+        navigate('/chat'); // Utilizando navigate en lugar de history.push
+    };
+
 
     const firebaseConfig = {
         apiKey: KEY_FIRE,
@@ -48,6 +55,9 @@ const Register = () => {
                 const user = userCredential.user;
                 // Llamamos a la función para actualizar el nombre de usuario
                 console.log(user);
+                setCurrentUser(user);
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                handleOnClick()
             })
             .catch((error) => {
                 console.log(error);
@@ -73,7 +83,8 @@ const Register = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-
+                setCurrentUser(user);
+                localStorage.setItem('currentUser', JSON.stringify(user));
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
@@ -100,36 +111,40 @@ const Register = () => {
         // you have one. Use User.getToken() instead.
         const uid = user.uid;
     }
+
+    //     gestion de localstorage
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('currentUser');
+        if (storedUser) {
+            setCurrentUser(JSON.parse(storedUser));
+        }
+    }, []);
+
     return (
         <div className="registerForm">
-            <hgroup style={{ display: "flex", flexDirection: "column", }}>
-                <h1>Accede a tu cuenta para empezar a charlar con Doña Petronapp</h1>
-                {/* <h3 style={{ display: 'flex', alignSelf: "center", justifyContent: "space-between" }}>
-                    <h3 onClick={() => setOption("registro")}>Registrarse  /</h3>
-                    <h3 onClick={() => setOption("inicioSesion")}> / Iniciar sesión</h3>
-                </h3> */}
-            </hgroup>
 
+          
+                <div className='logoRegister' tab="login"/>
+         
             <form>
                 {option === "registro" && (
-                    <div >
+                    <div style={{ justifyContent: "center", textAlign: "center" }} >
 
-                        <h1>Registrate en Doña Petronapp!</h1>
-                        <div style={{ display: "flex", justifyContent: "space-around" }}>
-                            <h4>¿Ya tenés una cuenta?  </h4>
-                            <h3 onClick={() => setOption("inicioSesion")}>Iniciar sesión</h3>
-                        </div>
+                        <h1>Registrate!</h1>
 
 
-                        <NavLink to="/chat">
-                            <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
-                                <img src={icono} style={{height:"30px", marginRight:"20px"}}/>
-                                Registro rápido con Google
+                        <div onClick={handleOnClick}>
+                        <button style={{ display: "flex", justifyContent: "space-around" }} type="button" className="button2 buttonBlue" onClick={call_login_google}>
+                            Entrar con Google
+                                <img src={icono} style={{ height: "30px", marginLeft: "40px" }} />
                                 <div className="ripples buttonRipples">
                                     <span className="ripplesCircle"></span>
                                 </div>
                             </button>
-                        </NavLink>
+                        </div>
+                        <div className="separator"></div>
+                        
                         <div className="group">
                             <input
                                 onBlur={handleInputBlur}
@@ -160,24 +175,23 @@ const Register = () => {
                             <span className="bar"></span>
                             <label>Contraseña</label>
                         </div>
+                        
                     </div>
                 )}
 
                 {option === "inicioSesion" && (
-                    <div>
-                        <h1>Inicia sesion en Doña Petronapp!</h1>
-                        <div style={{ display: "flex", justifyContent: "space-around" }}>
-                            <h4>¿No tenés una cuenta?  </h4>
-                            <h3 onClick={() => setOption("registro")}>Registrarse </h3>
-                        </div>
-                        <NavLink to="/chat">
-                            <button type="button" className="button2 buttonBlue" onClick={call_login_google}>
-                                Iniciar sesión con Google
+                    <div style={{ justifyContent: "center", textAlign: "center" }}>
+                        <h1>Ingresá!</h1>
+                        <div onClick={handleOnClick}>
+                            <button style={{ display: "flex", justifyContent: "space-around" }} type="button" className="button2 buttonBlue" onClick={call_login_google}>
+                            Entrar con Google
+                                <img src={icono} style={{ height: "30px", marginLeft: "40px" }} />
                                 <div className="ripples buttonRipples">
                                     <span className="ripplesCircle"></span>
                                 </div>
                             </button>
-                        </NavLink>
+                        </div>
+                        <div className="separator"></div>
                         <div className="group">
                             <input
                                 type="email"
@@ -197,11 +211,12 @@ const Register = () => {
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>Contraseña</label>
+                        
                         </div>
                     </div>
                 )}
 
-                <NavLink>
+                <NavLink style={{ textDecoration: 'none', color: 'inherit' }} >
                     <button
                         type="button"
                         className="button2 buttonBlue"
@@ -213,6 +228,13 @@ const Register = () => {
                         </div>
                     </button>
                 </NavLink>
+                {option === "registro" ? <div style={{ display: "flex", justifyContent: "space-around" }}>
+                            <h4 style={{color:"#f2f2f2",marginRight:"5px"}}>¿Ya tenés una cuenta?  </h4>
+                            <h3 onClick={() => setOption("inicioSesion")}>Iniciar sesión</h3>
+                        </div> : <div style={{ display: "flex", justifyContent: "space-around" }}>
+                            <h4 style={{color:"#f2f2f2", marginRight:"5px"}}>¿No tenés una cuenta?  </h4>
+                            <h3 onClick={() => setOption("registro")}>Registrarse </h3>
+                        </div>}
             </form>
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef  } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 
 import { UserContext } from "../../context/UserProvider";
 
@@ -8,7 +8,29 @@ import { getFirestore, collection, addDoc, doc, onSnapshot } from "firebase/fire
 import { API_KEY } from "../../firebase";
 import Swal from 'sweetalert2';
 
-
+export const saveChat = async (user, firestore, titleChat, userMessages, welcomeMessage) => {
+  try {
+    if (user) {
+      const userId = user.uid;
+      const chatRef = collection(firestore, 'chats', userId, 'userChats');
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleString();
+      const chatData = {
+        Date: formattedDate,
+        titleChat: titleChat !== '' ? titleChat : 'Untitled Chat',
+        userMessages: userMessages
+          .filter((message) => message.id !== welcomeMessage.id)
+          .map((message) => message.message),
+      };
+      await addDoc(chatRef, chatData);
+      console.log('Chat saved successfully');
+    } else {
+      console.log('User not logged in');
+    }
+  } catch (error) {
+    console.error('Error saving chat:', error);
+  }
+};
 
 const Chat = () => {
   const { user } = useContext(UserContext);
@@ -22,10 +44,12 @@ const Chat = () => {
   const chatContainerRef = useRef(null); // Referencia al final del contenedor de mensajes
   const [preferences, setPreferences] = useState([]);
 
+
+
   const scrollToBottom = () => {
     chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
   };
-  
+
   const onToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -35,7 +59,7 @@ const Chat = () => {
       saveChat(); // Llama a la función saveChat después de obtener el título
     }
   }, [titleChat]);
-  
+
   const showTitleInput = () => {
     Swal.fire({
       title: 'Agregar título al chat',
@@ -45,17 +69,21 @@ const Chat = () => {
       showCancelButton: true,
       confirmButtonText: 'Guardar',
       cancelButtonText: 'Cancelar',
+      customClass: {
+        confirmButton: 'custom-swal-button', // Aplica la clase CSS personalizada al botón "Guardar"
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         const title = result.value;
         // Guarda el título en la variable titleChat
         setTitleChat(title);
+
       }
     });
   };
-  
-  
- 
+
+
+
   useEffect(() => {
     const handleResize = () => {
       setIsScreenSmall(window.innerWidth < 600);
@@ -71,25 +99,25 @@ const Chat = () => {
 
   useEffect(() => {
     const fetchPreferences = async () => {
-        if (user) {
-            const db = getFirestore();
-            const userChatsRef = doc(db, "chats", user.uid, "userChats", "preferences");
+      if (user) {
+        const db = getFirestore();
+        const userChatsRef = doc(db, "chats", user.uid, "userChats", "preferences");
 
-            const unsubscribe = onSnapshot(userChatsRef, (snapshot) => {
-                if (snapshot.exists()) {
-                    const data = snapshot.data();
-                    setPreferences(data.preferences || []);
-                } else {
-                    setPreferences([]);
-                }
-            });
+        const unsubscribe = onSnapshot(userChatsRef, (snapshot) => {
+          if (snapshot.exists()) {
+            const data = snapshot.data();
+            setPreferences(data.preferences || []);
+          } else {
+            setPreferences([]);
+          }
+        });
 
-            return () => unsubscribe();
-        }
+        return () => unsubscribe();
+      }
     };
 
     fetchPreferences();
-}, [user]);
+  }, [user]);
 
   const systemMessage2 = {
     role: "system",
@@ -171,8 +199,8 @@ const Chat = () => {
       console.error('Error saving chat:', error);
     }
   };
-  
-  
+
+
   const handleSendMessage = async () => {
     if (newMessage.trim() !== '') {
       const userMessage = {
@@ -227,9 +255,14 @@ const Chat = () => {
 
   return (
     <div className="mainChat chat-page">
-      {!isScreenSmall && <NavBar onToggleMenu={onToggleMenu}></NavBar>}
+      {!isScreenSmall && <NavBar onToggleMenu={onToggleMenu}
+        firestore={firestore}
+        showTitleInput={showTitleInput}
+        titleChat={titleChat}
+        userMessages={userMessages}
+        welcomeMessage={welcomeMessage} ></NavBar>}
       <div className={`chatContainer ${isMenuOpen ? 'menuOpen' : ''}`}>
-      
+
         <div className="chat" ref={chatContainerRef}>
           <div style={{ flexWrap: "wrap" }}>
             {userMessages.map((message) => (
@@ -240,13 +273,14 @@ const Chat = () => {
                 {message.message}
               </div>
             ))}
-            
+
             {isTyping && <div className="typingIndicator">PetronApp is typing</div>}
-        
+
+
           </div>
         </div>
         <div className="inputContainer">
-      
+          <div className="presionaContainer" >Si querés guardar este chat  <p className='presiona' onClick={showTitleInput}> presioná acá</p></div>
           {user == null ? (
             <input
               className="input"
@@ -276,7 +310,7 @@ const Chat = () => {
               maxLength="200"
             />
           )}
-          <div className='buttonChatSave' onClick={showTitleInput}>Guardar chat</div>
+
         </div>
       </div>
     </div>

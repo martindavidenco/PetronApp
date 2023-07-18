@@ -4,18 +4,19 @@
 
 .registerForm {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row-reverse;
 	justify-content: center;
 	align-items: center;
+	height: 110vh;
 }
 
 body {
-	background-image: url("../../assets/fondoMain.png");
+	background-color: #f2f2f2;
+}
 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+.imgLogin {
+	width: 100%;
+	margin-top: 40px;
 }
 
 hgroup {
@@ -41,16 +42,21 @@ h3 {
 }
 
 h4 {
-	color: #fafafa;
+	color: #222222;
 
 }
 
 form {
 	width: 40%;
-	margin: 4em auto;
-	padding: 3em 2em 2em 2em;
-
-
+	display: flex;
+	flex-direction: column;
+	padding: 0em 2em 2em 2em;
+	border: solid 1px #222222;
+	border-radius: 15px;
+	background-color: #222222;
+	margin: 2%;
+	justify-content: center;
+	align-items: center;
 }
 
 .group {
@@ -75,6 +81,17 @@ input:focus {
 	outline: none;
 }
 
+.logoRegister {
+	background-image: url("../../assets/login.svg");
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: 130%;
+	background-attachment: local;
+	width: 58%;
+	height: 110vh;
+
+	margin-bottom: 30px;
+}
 
 /* Label */
 
@@ -98,7 +115,7 @@ input.used~label {
 	transform: scale(.75);
 	left: -2px;
 	/* font-size: 14px; */
-	color: #4a89dc;
+	color: #ffffffd9;
 }
 
 
@@ -151,7 +168,7 @@ input:focus~.bar:after {
 }
 
 h1 {
-	color: #fafafa;
+	color: #f2f2f2;
 }
 
 /* active */
@@ -192,6 +209,13 @@ input:focus~.highlight {
 	border: 0;
 	cursor: pointer;
 	transition: all 0.15s ease;
+	text-decoration-line: none;
+	font-weight: 300;
+	font-family: 'Poppins', sans-serif;
+	height: 76px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .button:focus {
@@ -202,15 +226,25 @@ input:focus~.highlight {
 /* Button modifiers */
 
 .buttonBlue {
-	background: #F2A444;
-	text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+	background: #222222;
+	border: 1px solid #FFFFFF;
+	box-shadow: 4px 4px 0px 0px #F2B33D;
+border-radius: 15px;
+
 }
 
 .buttonBlue:hover {
-	background: #Bf755a;
+	background: #f2f2f2;
+	color: #222222;
 }
 
-
+.separator {
+	width: 100%;
+	height: 1px;
+	background-color: #9E9E9E;
+	margin-top: 30px;
+	margin-bottom: 30px;
+  }
 /* Ripples container */
 
 .ripples {
@@ -221,6 +255,8 @@ input:focus~.highlight {
 	height: 100%;
 	overflow: hidden;
 	background: transparent;
+	text-decoration: none;
+
 }
 
 
@@ -261,28 +297,131 @@ input:focus~.highlight {
 	}
 }
 
+@media (max-width: 1050px) {
+	.registerForm {
+		height: 120vh;
+	}
+}
+
+@media (max-width:950px) {
+	.registerForm {
+		height: 130vh;
+	}
+}
+
 @media (max-width: 850px) {
-	form {
-		width: 70%;
-		
-	
-	
+
+
+	.registerForm {
+		height: 140vh;
 	}
-  }
-  
-@media (max-width: 400px) {
-	form {
-		width: 80%;
-	
-	
-	
+}
+
+@media (max-width: 670px) {
+	.registerForm {
+		flex-direction: column;
+		height: auto;
 	}
-  }
-  @media (max-width: 330px) {
+
 	form {
 		width: 90%;
-	
-	
-	
+
+
+
 	}
-  }
+
+}
+
+@media (max-width: 400px) {
+	form {
+		width: 100%;
+
+
+
+	}
+
+	h1 {
+		font-size: 25px;
+	}
+}
+
+@media (max-width: 330px) {
+	form {
+		width: 100%;
+
+
+
+	}
+}
+
+@media(max-width: 680px) {
+	.logoRegister {
+		margin: 0;
+		width: 100%;
+	}
+}
+
+@media(max-width: 680px) {
+	.logoRegister {
+		margin: 0;
+		width: 100%;
+		height: 80vh;
+		background-position: center;
+		background-size: 100%;
+	}
+}
+
+@media(max-width: 540px) {
+	.logoRegister {
+		height: 67vh;
+	}
+}
+
+@media(max-width: 400px) {}
+
+@media(max-width: 460px) {
+	.logoRegister {
+		height: 56vh;
+	}
+	.button2{
+		font-size: 12px;
+	}
+}
+
+@media(max-width: 420px) {
+	.logoRegister {
+		height: 52vh;
+	}
+}
+
+@media(max-width: 380px) {
+	.logoRegister {
+		height: 46vh;
+
+	}
+}
+
+@media(max-width: 330px) {
+
+	.logoRegister {
+		height: 40vh;
+	}
+}
+
+@media(max-width: 300px) {
+	.logoRegister {
+		height: 37vh;
+	}
+}
+
+@media(max-width: 280px) {
+	.logoRegister {
+		height: 34vh;
+	}
+}
+
+@media(max-width: 260px) {
+	.logoRegister {
+		height: 31vh;
+	}
+}

@@ -20,6 +20,16 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('currentUser');
+        if (storedUser) {
+            const parsedUser = JSON.parse(storedUser);
+            setUser(parsedUser);
+            setCurrentUser(parsedUser);
+        }
+    }, []);
 
     useEffect(() => {
         setPersistence(auth, browserSessionPersistence)
@@ -27,8 +37,12 @@ export const UserProvider = ({ children }) => {
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
                         setUser(user);
+                        setCurrentUser(user);
+                        localStorage.setItem('currentUser', JSON.stringify(user));
                     } else {
                         setUser(null);
+                        setCurrentUser(null);
+                        localStorage.removeItem('currentUser');
                     }
                 });
             })
@@ -44,6 +58,8 @@ export const UserProvider = ({ children }) => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                setCurrentUser(user);
+                localStorage.setItem('currentUser', JSON.stringify(user));
             })
             .catch((error) => {
                 console.log("Error al iniciar sesión con Google:", error);
@@ -54,6 +70,8 @@ export const UserProvider = ({ children }) => {
         signOut(auth)
             .then(() => {
                 setUser(null);
+                
+                
             })
             .catch((error) => {
                 console.log("Error al cerrar sesión:", error);
@@ -66,4 +84,3 @@ export const UserProvider = ({ children }) => {
         </UserContext.Provider>
     );
 };
-

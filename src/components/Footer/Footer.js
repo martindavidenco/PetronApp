@@ -4,23 +4,28 @@ import logo from "../../assets/logoMain.png"
 import face from "../../assets/facebook.png"
 import insta from "../../assets/instagram.png"
 import tiktok from "../../assets/tik-tok.png"
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation,useNavigate } from 'react-router-dom';
 const Footer = () => {
     const location = useLocation();
+
+    const navigate = useNavigate();
+    const handleOnClick = () => {
+      navigate('/'); // Utilizando navigate en lugar de history.push
+    };
     return (
         <footer className="footer">
             <div className="container">
 
                 <div className="row">
                     <div className="footer-col1">
-                        {location.pathname == "/" ? <img src={logo} className="logoNav" alt="Logo" /> : <NavLink className="title" to="/">
-                            <img src={logo} className="logoNav" alt="Logo" />
-                        </NavLink>}
+                       <div className="title" >
+                            <img src={logo} onClick={handleOnClick} className="logoNav" alt="Logo" />
+                        </div>
                     </div>
 
                     <div className="footer-col">
-                        <h4>Nosotros</h4>
-                        <ul>
+                        <h4 style={{marginRight:"40%"}}>Nosotros</h4>
+                        <ul className='ulFooter'>
                             <li>
                                 {location.pathname == "/quien" ? <h2 className="navegacionFooter" >Quienes somos</h2> : <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/quien"><h2 className="navegacionFooter" >Quienes somos</h2></NavLink>}
                                
@@ -32,8 +37,8 @@ const Footer = () => {
                     </div>
                    
                     <div className="footer-col">
-                        <h4>Necesitas Ayuda?</h4>
-                        <ul>
+                        <h4 style={{marginRight:"20%"}}>Ayuda</h4>
+                        <ul className='ulFooter'>
                             <li>
                                 <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/preguntas"><h2 className="navegacionFooter" >FAQS</h2></NavLink>
                             </li>

@@ -63,17 +63,17 @@ const NavApp = () => {
         return null; // Ocultar el NavBar en la ruta /chat
     }
 
-    const colorStyle = windowWidth < 768 ? { color: "#d2a444" } : { color: "#f2f2f2" };
+    const colorStyle = windowWidth < 768 ? { color: "#f2f2f2" } : { color: "#f2f2f2" };
 
 
     const isChatPage = location.pathname === "/chat";
-    const isQuienPage = location.pathname === "/quien";
+    const isQuienPage = location.pathname === "/register";
     let navBarClass;
 
     if (isChatPage) {
         navBarClass = "fondoChat";
     } else if (isQuienPage) {
-        navBarClass = "navQuien";
+        navBarClass = "headRegister";
     } else {
         navBarClass = "head";
     }
@@ -82,14 +82,22 @@ const NavApp = () => {
         <>
 
             <div className={navBarClass}>
-                {/* Contenido del NavBar para otras páginas */}
-                <div className={navBarClass} style={{ backgroundImage: backgroundImage }}>
-                    {location.pathname == "/" ? <img src={logo} className="logoNav" alt="Logo" /> : <NavLink className="title" to="/">
+
+                <div className={navBarClass} >
+                    {location.pathname == "/" ? <div className="title"> <img src={logo} className="logoNav" alt="Logo" /></div> : <NavLink className="title" to="/">
                         <img src={logo} className="logoNav" alt="Logo" />
                     </NavLink>}
 
 
                     <ul className={`nav_items1 ${isOpen && "open"}`}>
+                        <div className="containerNav">
+                        <NavLink
+                            style={{ textDecoration: "none", color: "inherit" }}
+                            to="/"
+                            onClick={closeMenu}
+                        >
+                            <h2 style={isQuienPage ? colorStyle : {}}>Inicio</h2>
+                        </NavLink>
                         <NavLink
                             to="/chat"
                             style={{ textDecoration: "none", color: "inherit" }}
@@ -114,13 +122,8 @@ const NavApp = () => {
                             <h2 style={isQuienPage ? colorStyle : {}}>Perfil</h2>
                         </NavLink>
 
-                        <NavLink
-                            style={{ textDecoration: "none", color: "inherit" }}
-                            to="/"
-                            onClick={closeMenu}
-                        >
-                            <h2 style={isQuienPage ? colorStyle : {}}>Inicio</h2>
-                        </NavLink>
+                        </div>
+
 
                         <div className="user-container">
                             {user ? (
@@ -132,7 +135,7 @@ const NavApp = () => {
                                         onClick={toggleModal}
                                     />
                                     {windowWidth < 768 && (
-                                        <h2>{user && user.displayName.toUpperCase()}</h2>
+                                        <p style={{ color: "#22222" }}>{user && user.displayName.toUpperCase()}</p>
                                     )}
                                 </div>
                             ) : (
@@ -154,6 +157,7 @@ const NavApp = () => {
                             )}
                         </div>
                     </ul>
+
                     <div className={`nav_toggle1 ${isOpen && "open"}`} onClick={() => setIsOpen(!isOpen)}>
                         <span className="clickable-area"></span>
                         <span className="clickable-area"></span>
